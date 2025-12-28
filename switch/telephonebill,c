@@ -1,0 +1,57 @@
+// Write a program using switch to calculate an amount of a telephone bill for the following criteria. (Without Loop)
+// Calls
+// charge per call (Rs.)
+// 1-150
+//                0
+// 151-250
+//   0.9
+// 251-400
+// 1.2
+// 401 onwards
+// 1.5
+#include <stdio.h>
+
+int main() {
+    int calls, slab;
+    float amount = 0;
+
+    printf("Enter total number of calls: ");
+    scanf("%d", &calls);
+
+    /* Decide slab */
+    if (calls <= 150)
+        slab = 1;
+    else if (calls <= 250)
+        slab = 2;
+    else if (calls <= 400)
+        slab = 3;
+    else
+        slab = 4;
+
+    /* Calculate bill using switch */
+    switch (slab) {
+        case 1:
+            amount = 0;
+            break;
+
+        case 2:
+            amount = (calls - 150) * 0.9;
+            break;
+
+        case 3:
+            amount = (100 * 0.9) + (calls - 250) * 1.2;
+            break;
+
+        case 4:
+            amount = (100 * 0.9) + (150 * 1.2) + (calls - 400) * 1.5;
+            break;
+    }
+
+    printf("Total telephone bill = Rs. %.2f\n", amount);
+
+    return 0;
+}
+
+
+
+
